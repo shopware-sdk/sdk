@@ -1,17 +1,17 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace ShopwareSdk\Service;
 
-
 use ShopwareSdk\AbstractApi;
+use ShopwareSdk\HydrateData;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
-use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
 
 abstract class AbstractService
 {
     private Serializer $serializer;
+    private HydrateData $hydrate;
 
     public function __construct(
         private AbstractApi $client)
@@ -20,33 +20,26 @@ abstract class AbstractService
         $normalizers = [new ObjectNormalizer()];
 
         $this->serializer = new Serializer($normalizers, $encoders);
+        $this->hydrate = new HydrateData();
     }
 
     protected function request($method, $relativeUrl, $modelClass = null, $body = null)
     {
-
         if ($body !== null) {
             $body = [
                 'json' => json_decode($this->serializer->serialize($body, 'json'), true),
             ];
-            $body['json']['id'] = md5('test');
         }
 
         $response = $this->client->request($method, $relativeUrl, $body);
         $statusCode = $response->getStatusCode();
 
         $responseContent = $response->toArray(false);
-        // Catching all NON 2xx status codes for further error processing
+        var_export($responseContent);
         if ($statusCode < 200 || $statusCode >= 300) {
             throw new \Exception(json_encode($responseContent['errors'], JSON_PRETTY_PRINT), $statusCode);
         }
 
-//            if ($responseBody && $modelClass && class_exists($modelClass)) {
-//                $responseJson = json_decode($responseBody, true);
-//
-//                //return new $modelClass($responseJson);
-//            }
-//
-//            return json_decode($responseBody, true);
+        return $this->hydrate->map($responseContent['data'], $modelClass);
     }
 }

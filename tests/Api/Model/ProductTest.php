@@ -7,6 +7,7 @@ use ShopwareSdk\AdminAPI;
 use ShopwareSdk\Model\Currency;
 use ShopwareSdk\Model\Price;
 use ShopwareSdk\Model\Product;
+use ShopwareSdk\Model\TaxCollection;
 use ShopwareSdk\Tests\Api\ApiHelper;
 
 class ProductTest extends TestCase
@@ -22,7 +23,11 @@ class ProductTest extends TestCase
 
     public function testCreateProduct()
     {
+        $adminApi = ApiHelper::createAdminApi();
+
+
         $product = new Product();
+        $product->taxId = $adminApi->tax->getAll()->entities[0]->id;
         $product->name = 'Test Product';
         $product->stock = 99;
         $product->description = 'Test Product Description';
@@ -30,6 +35,7 @@ class ProductTest extends TestCase
         $product->productNumber = 'TEST-PRODUCT';
 
         $price = new Price();
+        $price->currencyId = $adminApi->currency->getAll()->entities[0]->id;
         $price->net = 100;
         $price->gross = 110;
         $price->linked = true;

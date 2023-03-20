@@ -14,6 +14,8 @@ class ServiceFactory
      */
     protected $classMap = [
         'product' => ProductService::class,
+        'tax' => TaxService::class,
+        'currency' => CurrencyService::class,
     ];
 
     /**

@@ -9,6 +9,8 @@ use ShopwareSdk\Service\ServiceFactory;
  * Allows access to AdminApi functions.
  *
  * @property \ShopwareSdk\Service\ProductService $product
+ * @property \ShopwareSdk\Service\TaxService $tax
+ * @property \ShopwareSdk\Service\CurrencyService $currency
  */
 class AdminAPI extends AbstractApi
 {
