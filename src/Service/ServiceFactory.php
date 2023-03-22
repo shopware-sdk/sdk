@@ -16,6 +16,7 @@ class ServiceFactory
         'product' => ProductService::class,
         'tax' => TaxService::class,
         'currency' => CurrencyService::class,
+        'order' => OrderService::class,
     ];
 
     /**

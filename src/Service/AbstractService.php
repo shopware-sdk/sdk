@@ -23,7 +23,7 @@ abstract class AbstractService
         $this->hydrate = new HydrateData();
     }
 
-    protected function request($method, $relativeUrl, $modelClass = null, $body = null)
+    protected function request($method, $relativeUrl, $modelClass = null, $body = null, $options = [])
     {
         if ($body !== null) {
             $body = [
@@ -35,7 +35,6 @@ abstract class AbstractService
         $statusCode = $response->getStatusCode();
 
         $responseContent = $response->toArray(false);
-        var_export($responseContent);
         if ($statusCode < 200 || $statusCode >= 300) {
             throw new \Exception(json_encode($responseContent['errors'], JSON_PRETTY_PRINT), $statusCode);
         }

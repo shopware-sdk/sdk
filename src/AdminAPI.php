@@ -11,6 +11,7 @@ use ShopwareSdk\Service\ServiceFactory;
  * @property \ShopwareSdk\Service\ProductService $product
  * @property \ShopwareSdk\Service\TaxService $tax
  * @property \ShopwareSdk\Service\CurrencyService $currency
+ * @property \ShopwareSdk\Service\OrderService $order
  */
 class AdminAPI extends AbstractApi
 {

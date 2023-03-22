@@ -41,7 +41,7 @@ class ProductTest extends TestCase
         $price->linked = true;
 
         $product->price = $price;
-
+        $qa = $adminApi->currency->getAll();
         ApiHelper::createAdminApi()->product->create($product);
     }
 }

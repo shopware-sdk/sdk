@@ -21,18 +21,7 @@ final class HydrateData
             }
 
             foreach ($data['attributes'] as $key => $value) {
-                if(is_array($value)) {
-                    $class = '\\ShopwareSdk\\Model\\' . ucfirst($key);
-                    if(class_exists($class)) {
-                        $subObject = new $class();
-                        foreach ($value as $subKey => $subValue) {
-                            $this->setValue($subObject, $subKey, $subValue);
-                        }
-                        $object->$key = $subObject;
-                    }
-                } else {
-                    $this->setValue($object, $key, $value);
-                }
+                $this->checkValue($object, $key, $value);
             }
         }
 
@@ -42,7 +31,29 @@ final class HydrateData
     private function setValue(object $object, string $key, mixed $value)
     {
         if (property_exists($object, $key)) {
-            $object->$key = $value;
+            try {
+                $object->$key = $value;
+            } catch (\Throwable $e) {
+                var_dump($object, $key, $value);
+                die(PHP_EOL . '<br>die: ' . __FUNCTION__ .' / '. __FILE__ .' / '. __LINE__);
+            }
+
+        }
+    }
+
+    private function checkValue(object $object ,string|int $key, mixed $value): void
+    {
+        if (is_array($value)) {
+            $class = '\\ShopwareSdk\\Model\\' . ucfirst((string)$key);
+            if (class_exists($class)) {
+                $subObject = new $class();
+                foreach ($value as $subKey => $subValue) {
+                    $this->checkValue($subObject, $subKey, $subValue);
+                }
+                $object->$key = $subObject;
+            }
+        } else {
+            $this->setValue($object, $key, $value);
         }
     }
 }
