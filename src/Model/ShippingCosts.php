@@ -7,6 +7,10 @@ class ShippingCosts
     public float|null $unitPrice;
     public float|null $quantity;
     public float|null $totalPrice;
-    public CalculatedTaxes|null $calculatedTaxes;
+
+    /**
+     * @var \ShopwareSdk\Model\CalculatedTaxes[]|null
+     */
+    public array|null $calculatedTaxes;
     public TaxRules|null $taxRules;
 }

@@ -6,6 +6,8 @@ use PHPUnit\Framework\TestCase;
 use ShopwareSdk\HydrateData;
 use ShopwareSdk\Model\CurrencyCollection;
 use ShopwareSdk\Model\ItemRounding;
+use ShopwareSdk\Model\Order;
+use ShopwareSdk\Model\OrderCollection;
 use ShopwareSdk\Model\Tax;
 use ShopwareSdk\Model\TaxCollection;
 use ShopwareSdk\Model\TotalRounding;
@@ -44,6 +46,17 @@ final class HydrateDataTest extends TestCase
         self::assertSame(0.0, $taxCollection->entities[2]->taxRate);
         self::assertSame('Reduced rate 2', $taxCollection->entities[2]->name);
         self::assertSame(3, $taxCollection->entities[2]->position);
+    }
+
+    public function testHydrataTreeObject()
+    {
+        $orderCollection = $this->hydrateData->map($this->getSmallOrderData(), OrderCollection::class);
+    }
+
+    public function testHydrataTreeObjectTwo()
+    {
+        $orderCollection = $this->hydrateData->mapArrayToClass($this->getSmallOrderData()[0]['attributes'], Order::class);
+        $orderCollection2 = $this->hydrateData->map($this->getSmallOrderData(), OrderCollection::class);
     }
 
     public function testCurrencyData()
@@ -146,5 +159,50 @@ final class HydrateDataTest extends TestCase
                     ],
             ],
         ];
+    }
+
+    public function getSmallOrderData()
+    {
+        return
+            [
+                0 =>
+                    [
+                        'id' => '5785d7d3c8b041bcaa59899abd39c1b4',
+                        'type' => 'order',
+                        'attributes' =>
+                            [
+                                'orderNumber' => '10001',
+                                'shippingCosts' =>
+                                    [
+                                        'unitPrice' => 0.0,
+                                        'quantity' => 1,
+                                        'totalPrice' => 0.0,
+                                        'calculatedTaxes' =>
+                                            [
+                                                0 =>
+                                                    [
+                                                        'extensions' =>
+                                                            [
+                                                            ],
+                                                        'tax' => 0.0,
+                                                        'taxRate' => 19.0,
+                                                        'price' => 0.0,
+                                                    ],
+                                            ],
+                                        'taxRules' =>
+                                            [
+
+                                                'taxRate' => 19.0,
+                                                'percentage' => 100.0,
+
+                                            ],
+                                        'referencePrice' => NULL,
+                                        'listPrice' => NULL,
+                                        'regulationPrice' => NULL,
+                                    ],
+                            ],
+                    ],
+            ];
+
     }
 }

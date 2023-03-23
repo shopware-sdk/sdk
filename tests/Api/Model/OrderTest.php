@@ -14,8 +14,6 @@ class OrderTest extends TestCase
 {
     public function testOrder()
     {
-
-
         $orders = ApiHelper::createAdminApi()->order->all();
     }
 

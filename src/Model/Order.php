@@ -7,6 +7,7 @@ class Order
     public string|null $id;
     public string|null $versionId;
     public int|null $autoIncrement;
+    public ShippingCosts|null $shippingCosts;
     public string|null $orderNumber;
     public string|null $billingAddressId;
     public string|null $billingAddressVersionId;
