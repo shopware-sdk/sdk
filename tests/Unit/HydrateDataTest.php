@@ -8,6 +8,7 @@ use ShopwareSdk\Model\CurrencyCollection;
 use ShopwareSdk\Model\ItemRounding;
 use ShopwareSdk\Model\Order;
 use ShopwareSdk\Model\OrderCollection;
+use ShopwareSdk\Model\ShippingCosts;
 use ShopwareSdk\Model\Tax;
 use ShopwareSdk\Model\TaxCollection;
 use ShopwareSdk\Model\TotalRounding;
@@ -55,8 +56,26 @@ final class HydrateDataTest extends TestCase
 
     public function testHydrataTreeObjectTwo()
     {
-        $orderCollection = $this->hydrateData->mapArrayToClass($this->getSmallOrderData()[0]['attributes'], Order::class);
-        $orderCollection2 = $this->hydrateData->map($this->getSmallOrderData(), OrderCollection::class);
+        $orderCollection = $this->hydrateData->map($this->getSmallOrderData(), OrderCollection::class);
+
+        self::assertCount(1, $orderCollection->entities);
+
+        $order = $orderCollection->entities[0];
+        self::assertInstanceOf(Order::class, $order);
+        self::assertSame('5785d7d3c8b041bcaa59899abd39c1b4', $order->id);
+        self::assertSame('10001', $order->orderNumber);
+
+        $shippingCosts = $order->shippingCosts;
+        self::assertInstanceOf(ShippingCosts::class, $shippingCosts);
+        self::assertSame(0.0, $shippingCosts->totalPrice);
+        self::assertSame(0.0, $shippingCosts->unitPrice);
+        self::assertSame(1.0, $shippingCosts->quantity);
+        self::assertSame(0.0, $shippingCosts->calculatedTaxes[0]->tax);
+        self::assertSame(0.0, $shippingCosts->calculatedTaxes[0]->price);
+        self::assertSame(19.0, $shippingCosts->calculatedTaxes[0]->taxRate);
+
+        self::assertSame(19.0, $shippingCosts->taxRules->taxRate);
+        self::assertSame(100.0, $shippingCosts->taxRules->percentage);
     }
 
     public function testCurrencyData()

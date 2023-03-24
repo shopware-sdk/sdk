@@ -66,46 +66,4 @@ final class HydrateData
 
         return $object;
     }
-
-
-
-
-    private function setValue(object $object, string $key, mixed $value)
-    {
-        if (property_exists($object, $key)) {
-            $object->$key = $value;
-        }
-    }
-
-    private function checkValue(object $object, string|int $key, mixed $value): void
-    {
-        if (is_array($value)) {
-            $class = '\\ShopwareSdk\\Model\\' . ucfirst((string)$key);
-            if (class_exists($class)) {
-                $subObject = new $class();
-                foreach ($value as $subKey => $subValue) {
-
-                    if (property_exists($subObject, (string)$subKey)) {
-                        $reflection = new \ReflectionProperty($subObject::class, $subKey);
-                        $docBlockComment = $reflection->getDocComment();
-                        if ($docBlockComment) {
-                            $pattern = '/@var\s+([^\s]+)/';
-                            preg_match($pattern, $docBlockComment, $matches);
-                            $type = trim(str_replace(['|', 'null'], '', $matches[1]));
-                            $one = substr($type, -2);
-                            $two = substr($type, 0, -2);
-                            if (substr($type, -2) === '[]' && class_exists(substr($type, 0, -2))) {
-                                $test = substr($type, 0, -2);
-                            }
-                        }
-                    }
-
-                    $this->checkValue($subObject, $subKey, $subValue);
-                }
-                $object->$key = $subObject;
-            }
-        } else {
-            $this->setValue($object, $key, $value);
-        }
-    }
 }
