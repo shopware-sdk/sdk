@@ -52,4 +52,4 @@ jobs:
         run: python3 .github/api_sw_client.py
 
       - name: Run PHPUnit tests
-        run: ./vendor/bin/phpunit
+        run: ./vendor/bin/phpunit --testsuite Api

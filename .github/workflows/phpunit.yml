@@ -1,0 +1,32 @@
+name: PHPUnit
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php: ['8.2']
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          tools: pecl
+          extensions: xdebug
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress
+
+      - name: Run test suite
+        run: XDEBUG_MODE=coverage vendor/bin/phpunit --testsuite=Unit --coverage-clover=clover.xml
+
+#      - name: Run mutation test
+#        run: php vendor/bin/infection --only-covered --min-msi=100 --min-covered-msi=100
+
+      - uses: codecov/codecov-action@v3
+        with:
+          file: ./clover.xml
