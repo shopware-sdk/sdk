@@ -13,7 +13,7 @@ use ShopwareSdk\Service\ServiceFactory;
  * @property \ShopwareSdk\Service\CurrencyService $currency
  * @property \ShopwareSdk\Service\OrderService $order
  */
-class AdminAPI extends AbstractApi
+class AdminApi extends AbstractApi
 {
     /**
      * @var \ShopwareSdk\Service\ServiceFactory

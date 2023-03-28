@@ -1,7 +1,7 @@
 import requests
 import json
 
-url = 'http://localhost:8080/api/oauth/token'
+url = 'http://localhost:8000/api/oauth/token'
 data = {
     'grant_type': 'password',
     'client_id': 'administration',
@@ -14,7 +14,7 @@ response = requests.post(url, data=data)
 response_dict = response.json()
 access_token = response_dict['access_token']
 
-url = 'http://localhost:8080/api/integration'
+url = 'http://localhost:8000/api/integration'
 headers = {
     'Authorization': 'Bearer ' + access_token,
     'Content-Type': 'application/json'

@@ -1,0 +1,55 @@
+name: Shopware 6 API Test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    services:
+      shopware:
+        image: dockware/play:6.4.20.0
+        ports:
+          - 8000:80
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: mbstring, json, intl, gd, xml
+          coverage: pcov
+
+      - name: Validate composer.json and composer.lock
+        run: composer validate
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress
+
+      - name: Install python lib
+        run: pip install requests
+
+      - name: Wait for Shopware 6 to be ready
+        run: |
+          for i in {1..30}; do
+            if curl -sSf http://localhost:8000; then
+              break
+            fi
+            echo "Waiting for Shopware 6 to be ready..."
+            sleep 3
+          done
+
+      - name: Set client_id and client_secret
+        run: python3 .github/api_sw_client.py
+
+      - name: Run PHPUnit tests
+        run: ./vendor/bin/phpunit

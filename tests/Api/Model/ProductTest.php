@@ -3,6 +3,7 @@
 namespace ShopwareSdk\Tests\Api\Model;
 
 use PHPUnit\Framework\TestCase;
+use ShopwareSdk\AdminApi;
 use ShopwareSdk\Model\Price;
 use ShopwareSdk\Model\Product;
 use ShopwareSdk\Tests\ApiHelper;
@@ -10,18 +11,20 @@ use ShopwareSdk\Tests\ApiHelper;
 class ProductTest extends TestCase
 {
     private string $productId;
+    private AdminApi $adminApi;
 
     protected function setUp(): void
     {
         parent::setUp();
 
+        $this->adminApi = ApiHelper::createAdminApi();
         $this->productId = md5('product' . 'TEST-PRODUCT123');
     }
 
     protected function tearDown(): void
     {
         try {
-            ApiHelper::createAdminApi()->product->delete($this->productId);
+            $this->adminApi->product->delete($this->productId);
         } catch (\Exception $e) {
 
         }
@@ -34,13 +37,13 @@ class ProductTest extends TestCase
         $this->expectException(\Exception::class);
         $this->expectExceptionCode(404);
 
-        ApiHelper::createAdminApi()->product->get('1');
+        $this->adminApi->product->get('1');
     }
 
     public function testMessageWhenProductNotFound()
     {
         try {
-            ApiHelper::createAdminApi()->product->get('1');
+            $this->adminApi->product->get('1');
         } catch (\Exception $e) {
             $msg = json_decode($e->getMessage(), true);
             self::assertSame('Not Found', $msg[0]['title']);
@@ -54,13 +57,11 @@ class ProductTest extends TestCase
 
     public function testCreateProduct()
     {
-        $adminApi = ApiHelper::createAdminApi();
+        $product = $this->getProduct();
 
-        $product = $this->getProduct($adminApi);
+        $this->adminApi->product->create($product);
 
-        $adminApi->product->create($product);
-
-        $checkProduct = $adminApi->product->get($this->productId);
+        $checkProduct = $this->adminApi->product->get($this->productId);
 
         self::assertSame($this->productId, $checkProduct->id);
         self::assertSame($product->taxId, $checkProduct->taxId);
@@ -74,10 +75,10 @@ class ProductTest extends TestCase
         self::assertSame($product->price[0]->currencyId, $checkProduct->price[0]->currencyId);
         self::assertSame($product->price[0]->gross, $checkProduct->price[0]->gross);
 
-        $adminApi->product->delete($this->productId);
+        $this->adminApi->product->delete($this->productId);
 
         try {
-            $adminApi->product->get($this->productId);
+            $this->adminApi->product->get($this->productId);
         } catch (\Exception $e) {
             self::assertSame(404, $e->getCode());
             return;
@@ -86,24 +87,19 @@ class ProductTest extends TestCase
         $this->fail('Product not deleted. (Code 404 expected)');
     }
 
-    /**
-     * @param \ShopwareSdk\AdminAPI $adminApi
-     *
-     * @return \ShopwareSdk\Model\Product
-     */
-    private function getProduct(\ShopwareSdk\AdminAPI $adminApi): Product
+    private function getProduct(): Product
     {
         $product = new Product();
 
         $product->id = $this->productId;
-        $product->taxId = $adminApi->tax->getAll()->entities[0]->id;
+        $product->taxId = $this->adminApi->tax->getAll()->entities[0]->id;
         $product->name = 'Test Product';
         $product->stock = 99;
         $product->description = 'Test Product Description';
         $product->productNumber = 'TEST-PRODUCT123';
         $product->isCloseout = false;
 
-        $currencyList = $adminApi->currency->getAll()->entities;
+        $currencyList = $this->adminApi->currency->getAll()->entities;
         $currencyId = null;
         foreach ($currencyList as $item) {
             if ($item->isoCode === 'EUR') {

@@ -2,13 +2,13 @@
 
 namespace ShopwareSdk\Tests;
 
-use ShopwareSdk\AdminAPI;
+use ShopwareSdk\AdminApi;
 
 final class ApiHelper
 {
-    public static function createAdminApi(): AdminAPI
+    public static function createAdminApi(): AdminApi
     {
-        return new AdminAPI(self::getConfig());
+        return new AdminApi(self::getConfig());
     }
 
     public static function getConfig(): array
