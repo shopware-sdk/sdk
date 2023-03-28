@@ -1,6 +1,11 @@
 <?php declare(strict_types=1);
 
-namespace ShopwareSdk\Model;
+namespace ShopwareSdk\Model\Order;
+
+use ShopwareSdk\Model\ItemRounding;
+use ShopwareSdk\Model\Order\Price;
+use ShopwareSdk\Model\ShippingCosts;
+use ShopwareSdk\Model\TotalRounding;
 
 class Order
 {

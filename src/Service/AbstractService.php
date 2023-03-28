@@ -26,19 +26,23 @@ abstract class AbstractService
     protected function request($method, $relativeUrl, $modelClass = null, $body = null, $options = [])
     {
         if ($body !== null) {
-            $body = [
-                'json' => json_decode($this->serializer->serialize($body, 'json'), true),
-            ];
+            $body = json_decode($this->serializer->serialize($body, 'json'), true);
         }
 
         $response = $this->client->request($method, $relativeUrl, $body);
         $statusCode = $response->getStatusCode();
 
-        $responseContent = $response->toArray(false);
+
         if ($statusCode < 200 || $statusCode >= 300) {
+            $responseContent = $response->toArray(false);
             throw new \Exception(json_encode($responseContent['errors'], JSON_PRETTY_PRINT), $statusCode);
         }
 
+        if($modelClass === null) {
+            return;
+        }
+
+        $responseContent = $response->toArray(false);
         return $this->hydrate->map($responseContent['data'], $modelClass);
     }
 }

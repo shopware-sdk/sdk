@@ -6,8 +6,8 @@ use PHPUnit\Framework\TestCase;
 use ShopwareSdk\HydrateData;
 use ShopwareSdk\Model\CurrencyCollection;
 use ShopwareSdk\Model\ItemRounding;
-use ShopwareSdk\Model\Order;
-use ShopwareSdk\Model\OrderCollection;
+use ShopwareSdk\Model\Order\Order;
+use ShopwareSdk\Model\Order\OrderCollection;
 use ShopwareSdk\Model\ShippingCosts;
 use ShopwareSdk\Model\Tax;
 use ShopwareSdk\Model\TaxCollection;
@@ -49,12 +49,7 @@ final class HydrateDataTest extends TestCase
         self::assertSame(3, $taxCollection->entities[2]->position);
     }
 
-    public function testHydrataTreeObject()
-    {
-        $orderCollection = $this->hydrateData->map($this->getSmallOrderData(), OrderCollection::class);
-    }
-
-    public function testHydrataTreeObjectTwo()
+    public function testHydrataOrderObject()
     {
         $orderCollection = $this->hydrateData->map($this->getSmallOrderData(), OrderCollection::class);
 
@@ -74,8 +69,8 @@ final class HydrateDataTest extends TestCase
         self::assertSame(0.0, $shippingCosts->calculatedTaxes[0]->price);
         self::assertSame(19.0, $shippingCosts->calculatedTaxes[0]->taxRate);
 
-        self::assertSame(19.0, $shippingCosts->taxRules->taxRate);
-        self::assertSame(100.0, $shippingCosts->taxRules->percentage);
+        self::assertSame(19.0, $shippingCosts->taxRules[0]->taxRate);
+        self::assertSame(100.0, $shippingCosts->taxRules[0]->percentage);
     }
 
     public function testCurrencyData()
@@ -209,12 +204,14 @@ final class HydrateDataTest extends TestCase
                                                     ],
                                             ],
                                         'taxRules' =>
+                                        [
                                             [
 
                                                 'taxRate' => 19.0,
                                                 'percentage' => 100.0,
 
-                                            ],
+                                            ]
+                                        ],
                                         'referencePrice' => NULL,
                                         'listPrice' => NULL,
                                         'regulationPrice' => NULL,
@@ -222,6 +219,5 @@ final class HydrateDataTest extends TestCase
                             ],
                     ],
             ];
-
     }
 }

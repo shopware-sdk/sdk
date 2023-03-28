@@ -14,7 +14,7 @@
         <server name="SHELL_VERBOSITY" value="-1"/>
         <env name="CLIENT_ID" value="SWIAV3ZRRDLJZXVLU3N1N3ZVTG" />
         <env name="CLIENT_SECRET" value="eWd3Qnc1R0U3ZmFjUDFUaER0UmpmQ01FY1JCT3JzS3hvUHNyN0w" />
-        <env name="API_URL" value="https://127.0.0.1:8000" />
+        <env name="API_URL" value="http://localhost:8080" />
     </php>
     <testsuites>
         <testsuite name="Unit">

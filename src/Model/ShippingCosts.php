@@ -12,5 +12,9 @@ class ShippingCosts
      * @var \ShopwareSdk\Model\CalculatedTaxes[]|null
      */
     public array|null $calculatedTaxes;
-    public TaxRules|null $taxRules;
+
+    /**
+     * @var \ShopwareSdk\Model\TaxRules[]|null
+     */
+    public array|null $taxRules;
 }

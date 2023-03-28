@@ -8,7 +8,10 @@ class Product
 
     public string|null $taxId;
 
-    public Price|null $price;
+    /**
+     * @var \ShopwareSdk\Model\Price[]|null
+     */
+    public array|null $price;
 
     public string|null $productNumber;
     public int|null $stock;

@@ -35,7 +35,7 @@ final class HydrateData
         $object = new $class();
 
         foreach ($data as $key => $value) {
-            $propertyName = lcfirst($key);
+            $propertyName = lcfirst((string)$key);
 
             if (property_exists($object, $propertyName)) {
                 if (is_array($value) && !empty($value)) {

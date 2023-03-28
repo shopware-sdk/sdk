@@ -14,6 +14,16 @@ class ProductService extends AbstractService
 
     public function create(Product $product)
     {
-        return $this->request('POST', self::URL, Product::class, $product);
+        $this->request('POST', self::URL, null, $product);
+    }
+
+    public function update(Product $product)
+    {
+        $this->request('PATCH', self::URL . $product->id, null, $product);
+    }
+
+    public function delete(string $id)
+    {
+        $this->request('DELETE', self::URL . $id);
     }
 }

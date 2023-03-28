@@ -33,8 +33,11 @@ abstract class AbstractApi
      *
      * @param HttpClientInterface $httpClient
      *
-     * @example ['apiUrl' => 'http://my.shopware.com', 'client_id' => 'SWIAxxxxxxxxxxxxxxxxxxZVTG', 'client_secret' => 'eWd3Qnc1R0U3ZmFjUDxxxxxxxxxxxxxxxxJCT3JzS3hvUHNyN0w']
-     *
+     * @example [
+     *     'apiUrl' => 'http://my.shopware.com',
+     *     'client_id' => 'SWIAxxxxxxxxxxxxxxxxxxZVTG',
+     *     'client_secret' => 'eWd3Qnc1R0U3ZmFjUDxxxxxxxxxxxxxxxxJCT3JzS3hvUHNyN0w'
+     * ]
      */
     public function __construct($config = [], HttpClientInterface $httpClient = null)
     {
@@ -125,9 +128,9 @@ abstract class AbstractApi
                 ]);
 
             /** @var object $data */
-            $data = json_decode($response->getContent(), true);
+            $data = $response->toArray();
         } catch (ServerException $e) {
-            throw new AuthFailedException($e->getMessage());
+            throw new \OAuthException($e->getMessage());
         }
 
         $this->accessToken = (string) $data['access_token'];

@@ -2,8 +2,8 @@
 
 namespace ShopwareSdk\Service;
 
-use ShopwareSdk\Model\OrderCollection;
-use ShopwareSdk\Model\Product;
+use ShopwareSdk\Model\Order\Order;
+use ShopwareSdk\Model\Order\OrderCollection;
 
 class OrderService extends AbstractService
 {
@@ -13,5 +13,10 @@ class OrderService extends AbstractService
     public function all($options = [])
     {
         return $this->request('GET', self::URL, OrderCollection::class, null, $options);
+    }
+
+    public function get(string $id)
+    {
+        return $this->request('GET', self::URL . $id, Order::class, null);
     }
 }
