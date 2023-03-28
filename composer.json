@@ -1,6 +1,7 @@
 {
     "name": "shopware-sdk/sdk",
     "type": "library",
+    "description": "Shopware SDK",
     "require": {
         "php": "^8.0 || ^8.1",
         "symfony/http-client": "^6.2",
