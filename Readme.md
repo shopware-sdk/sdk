@@ -1,6 +1,5 @@
 # Shopware SDK
 
----
 
 Sponsor by <a href="https://www.valantic.com/cx"><img src="https://www.valantic.com/wp-content/themes/valantic/img/logo-valantic.svg" style="margin:0 0 0 0" width="60px"/></a>
 
