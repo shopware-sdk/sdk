@@ -1,5 +1,6 @@
 # Shopware SDK
 
+[![codecov](https://codecov.io/gh/shopware-sdk/sdk/branch/main/graph/badge.svg)](https://codecov.io/gh/shopware-sdk/sdk)
 
 Sponsor by <a href="https://www.valantic.com/cx"><img src="https://www.valantic.com/wp-content/themes/valantic/img/logo-valantic.svg" style="margin:0 0 0 0" width="60px"/></a>
 
@@ -29,7 +30,7 @@ Add this code in your composer.json
 ```bash
 "require": {
     ...
-    "shopware/sdk": "dev-main"
+    "shopware-sdk/sdk": "dev-main"
 }
 ```
 
