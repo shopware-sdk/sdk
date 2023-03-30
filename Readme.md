@@ -88,7 +88,7 @@ Start shopware-demo shopware instance and set client credentials
 ```bash
 docker run --rm -p 8000:80 dockware/play
 
-python3 .github/api_credentials.py
+python3 .github/api_sw_client.py
 ```
 
 _Python Library:_ `pip install requests`
