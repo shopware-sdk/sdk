@@ -48,12 +48,12 @@ abstract class AbstractApi implements ApiInterface
         $this->httpClient = $httpClient ?: HttpClient::create();
     }
 
-    public function request(string $method, string $relativePath, array|null $body = null): ResponseInterface
+    public function request(string $method, string $relativePath, array|null $body = null, array $headers = []): ResponseInterface
     {
         $url = $this->config[self::API_URL] . $relativePath;
 
         return $this->httpClient->request($method, $url, [
-            'headers' => $this->getHeaders(),
+            'headers' => array_merge($this->getHeaders(), $headers),
             'json' => $body,
         ]);
     }

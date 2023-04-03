@@ -6,5 +6,5 @@ use Symfony\Contracts\HttpClient\ResponseInterface;
 
 interface ApiInterface
 {
-    public function request(string $method, string $relativePath, array|null $body = null): ResponseInterface;
+    public function request(string $method, string $relativePath, array|null $body = null, array $headers = []): ResponseInterface;
 }

@@ -23,16 +23,19 @@ abstract class AbstractService
         $this->hydrate = new HydrateData();
     }
 
-    protected function request($method, $relativeUrl, $modelClass = null, $body = null, $options = [])
+    protected function request($method, $relativeUrl, $modelClass = null, $body = null, array $query = [],array $headers = [])
     {
         if ($body !== null) {
             $body = json_decode($this->serializer->serialize($body, 'json'), true);
         }
 
-        $response = $this->client->request($method, $relativeUrl, $body);
+        if(!empty($query)) {
+            $relativeUrl .= '?' . http_build_query($query);
+        }
+
+        $response = $this->client->request($method, $relativeUrl, $body, $headers);
+
         $statusCode = $response->getStatusCode();
-
-
         if ($statusCode < 200 || $statusCode >= 300) {
             $responseContent = $response->toArray(false);
             throw new \Exception(json_encode($responseContent['errors'], JSON_PRETTY_PRINT), $statusCode);
