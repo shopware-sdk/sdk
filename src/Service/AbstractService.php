@@ -2,7 +2,7 @@
 
 namespace ShopwareSdk\Service;
 
-use ShopwareSdk\AbstractApi;
+use ShopwareSdk\ApiInterface;
 use ShopwareSdk\HydrateData;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
@@ -14,7 +14,7 @@ abstract class AbstractService
     private HydrateData $hydrate;
 
     public function __construct(
-        private AbstractApi $client)
+        private ApiInterface $client)
     {
         $encoders = [new JsonEncoder()];
         $normalizers = [new ObjectNormalizer()];

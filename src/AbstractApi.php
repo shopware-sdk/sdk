@@ -5,8 +5,9 @@ namespace ShopwareSdk;
 use Symfony\Component\HttpClient\Exception\ServerException;
 use Symfony\Component\HttpClient\HttpClient;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
+use Symfony\Contracts\HttpClient\ResponseInterface;
 
-abstract class AbstractApi
+abstract class AbstractApi implements ApiInterface
 {
     public const API_URL = 'apiUrl';
     public const CLIENT_ID = 'client_id';
@@ -47,7 +48,7 @@ abstract class AbstractApi
         $this->httpClient = $httpClient ?: HttpClient::create();
     }
 
-    public function request($method, $relativePath, $body = null)
+    public function request(string $method, string $relativePath, array|null $body = null): ResponseInterface
     {
         $url = $this->config[self::API_URL] . $relativePath;
 
