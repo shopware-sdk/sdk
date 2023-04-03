@@ -3,7 +3,7 @@
     "type": "library",
     "description": "Shopware SDK",
     "require": {
-        "php": "^8.0 || ^8.1",
+        "php": "^8.1 || ^8.2",
         "symfony/http-client": "^6.2",
         "symfony/serializer": "^6.2",
         "symfony/property-access": "^6.2"

@@ -36,13 +36,14 @@ Add this code in your composer.json
 
 ### Initialize the SDK
 
-
 ```php
-$adminApi = new AdminApi([
-    'apiUrl' => 'http://my.shopware.com',
-    'client_id' => 'SWIAxxxxxxxxxxxxxxxxxxZVTG',
-    'client_secret' => 'eWd3Qnc1R0U3ZmFjUDxxxxxxxxxxxxxxxxJCT3JzS3hvUHNyN0w',
-]);
+$config = new \ShopwareSdk\Config(
+    'http://my.shopware.com',
+    'SWIAxxxxxxxxxxxxxxxxxxZVTG',
+    'eWd3Qnc1R0U3ZmFjUDxxxxxxxxxxxxxxxxJCT3JzS3hvUHNyN0w',
+);
+
+$adminApi = new \ShopwareSdk\AdminApi($config);
 
 $currencies = $adminApi->currency->getAll();
 var_dump($currencies);

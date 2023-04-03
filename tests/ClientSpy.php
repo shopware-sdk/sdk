@@ -13,7 +13,7 @@ final class ClientSpy implements HttpClientInterface
 
     public function __construct(array $mockData)
     {
-        $url = ApiHelper::getConfig()['apiUrl'];
+        $url = ApiHelper::getConfig()->apiUrl;
         $this->returnedResponse[$url . '/api/oauth/token'] = new MockResponse([
             'access_token' => 'test',
             'expires_in' => 3600,

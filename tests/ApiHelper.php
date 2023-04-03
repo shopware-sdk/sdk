@@ -3,6 +3,7 @@
 namespace ShopwareSdk\Tests;
 
 use ShopwareSdk\AdminApi;
+use ShopwareSdk\Config;
 
 final class ApiHelper
 {
@@ -11,12 +12,12 @@ final class ApiHelper
         return new AdminApi(self::getConfig());
     }
 
-    public static function getConfig(): array
+    public static function getConfig(): Config
     {
-        return [
-            'apiUrl' => $_ENV['API_URL'],
-            'client_id' => $_ENV['CLIENT_ID'],
-            'client_secret' => $_ENV['CLIENT_SECRET'],
-        ];
+        return new Config(
+            $_ENV['API_URL'],
+            $_ENV['CLIENT_ID'],
+            $_ENV['CLIENT_SECRET'],
+        );
     }
 }
