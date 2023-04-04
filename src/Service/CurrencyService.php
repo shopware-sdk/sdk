@@ -7,7 +7,7 @@ use ShopwareSdk\Model\CurrencyCollection;
 
 class CurrencyService extends AbstractService
 {
-    private const URL = '/api/currency/';
+    protected const URL = '/api/currency/';
     public function getCurrencieByIsoCode(string $currencyName): Currency
     {
         return $this->request('GET', self::URL, Currency::class);

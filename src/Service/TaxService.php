@@ -6,7 +6,7 @@ use ShopwareSdk\Model\TaxCollection;
 
 class TaxService extends AbstractService
 {
-    private const URL = '/api/tax/';
+    protected const URL = '/api/tax/';
     public function getAll(): TaxCollection
     {
         return $this->request('GET', self::URL, TaxCollection::class);

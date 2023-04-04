@@ -6,7 +6,7 @@ use ShopwareSdk\Model\Product;
 
 class ProductService extends AbstractService
 {
-    private const URL = '/api/product/';
+    protected const URL = '/api/product/';
     public function get(string $id)
     {
         return $this->request('GET', self::URL . $id, Product::class);
