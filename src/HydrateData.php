@@ -13,17 +13,11 @@ final class HydrateData
         if ($object instanceof CollectionInterface) {
             $classMap = $object->getClassMap();
             foreach ($data as $item) {
-                $entity = $this->mapArrayToClass($item['attributes'], $classMap);
-                if (isset($item['id'])) {
-                    $entity->id = $item['id'];
-                }
+                $entity = $this->mapArrayToClass($item, $classMap);
                 $object->entities[] = $entity;
             }
         } else {
-            $object = $this->mapArrayToClass($data['attributes'], $class);
-            if (isset($data['id'])) {
-                $object->id = $data['id'];
-            }
+            $object = $this->mapArrayToClass($data, $class);
         }
 
         return $object;

@@ -1,366 +1,236 @@
 {
     "data": {
-        "id": "11dc680240b04f469ccba354cbf0b967",
-        "type": "product",
-        "attributes": {
-            "versionId": "0fa91ce3e96a4bc2be4bd9ce752c3425",
-            "parentId": null,
-            "parentVersionId": null,
-            "manufacturerId": "cc1c20c365d34cfb88bfab3c3e81d350",
-            "productManufacturerVersionId": null,
+        "extensions": {
+            "foreignKeys": {
+                "extensions": [],
+                "apiAlias": null
+            }
+        },
+        "_uniqueIdentifier": "11dc680240b04f469ccba354cbf0b967",
+        "versionId": "0fa91ce3e96a4bc2be4bd9ce752c3425",
+        "translated": {
+            "metaDescription": null,
+            "name": "Hauptprodukt mit erweiterten Preisen",
+            "keywords": null,
+            "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+            "metaTitle": null,
+            "packUnit": null,
+            "packUnitPlural": null,
+            "customFields": {},
+            "slotConfig": null,
+            "customSearchKeywords": null
+        },
+        "createdAt": "2023-03-16T11:59:47.059+00:00",
+        "updatedAt": "2023-03-16T12:00:33.191+00:00",
+        "parentId": null,
+        "childCount": 0,
+        "autoIncrement": 1,
+        "taxId": "5c025a831a584fc0add209b81517e69d",
+        "manufacturerId": "cc1c20c365d34cfb88bfab3c3e81d350",
+        "unitId": null,
+        "active": true,
+        "displayGroup": "9cc83811832d4b1f1593acb545f36678",
+        "price": [
+            {
+                "extensions": [],
+                "currencyId": "b7d2554b0ce847cd82f3ac9bd1c0dfca",
+                "net": 798.0,
+                "gross": 950,
+                "linked": true,
+                "listPrice": null,
+                "percentage": null,
+                "regulationPrice": null,
+                "apiAlias": "price"
+            }
+        ],
+        "manufacturerNumber": null,
+        "ean": null,
+        "sales": 0,
+        "productNumber": "SWDEMO10002",
+        "stock": 10,
+        "availableStock": 9,
+        "available": true,
+        "deliveryTimeId": null,
+        "deliveryTime": null,
+        "restockTime": null,
+        "isCloseout": false,
+        "purchaseSteps": 1,
+        "maxPurchase": null,
+        "minPurchase": 1,
+        "purchaseUnit": 1,
+        "referenceUnit": 1,
+        "shippingFree": true,
+        "purchasePrices": null,
+        "markAsTopseller": null,
+        "weight": 45,
+        "width": 590,
+        "height": 600,
+        "length": 840,
+        "releaseDate": "2023-03-16T11:59:47.017+00:00",
+        "categoryTree": [
+            "0fe4aa8be6aa48469e4d56c16b6511e0",
+            "251448b91bc742de85643f5fccd89051"
+        ],
+        "streamIds": null,
+        "optionIds": null,
+        "propertyIds": null,
+        "name": "Hauptprodukt mit erweiterten Preisen",
+        "keywords": null,
+        "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
+        "metaDescription": null,
+        "metaTitle": null,
+        "packUnit": null,
+        "packUnitPlural": null,
+        "variantRestrictions": null,
+        "configuratorGroupConfig": null,
+        "mainVariantId": null,
+        "displayParent": null,
+        "variantListingConfig": null,
+        "variation": [],
+        "tax": {
+            "extensions": {
+                "foreignKeys": {
+                    "extensions": [],
+                    "apiAlias": null
+                },
+                "internal_mapping_storage": {
+                    "extensions": [],
+                    "apiAlias": null
+                }
+            },
+            "_uniqueIdentifier": "5c025a831a584fc0add209b81517e69d",
+            "versionId": null,
+            "translated": [],
+            "createdAt": "2023-03-16T12:58:15.108+00:00",
+            "updatedAt": null,
+            "taxRate": 19,
+            "name": "Standard rate",
+            "position": 1,
+            "products": null,
+            "rules": null,
+            "shippingMethods": null,
+            "id": "5c025a831a584fc0add209b81517e69d",
+            "customFields": null,
+            "apiAlias": "tax"
+        },
+        "manufacturer": null,
+        "unit": null,
+        "prices": [],
+        "cheapestPrice": {
+            "extensions": [],
+            "hasRange": false,
+            "variantId": "11dc680240b04f469ccba354cbf0b967",
+            "parentId": "11dc680240b04f469ccba354cbf0b967",
+            "ruleId": null,
+            "purchase": 1,
+            "reference": 1,
             "unitId": null,
-            "taxId": "3eea0cb623fd45df86a12198da08ea6f",
-            "coverId": "e648140ff1f04177b40128ac6b649d8a",
-            "productMediaVersionId": null,
-            "deliveryTimeId": null,
-            "featureSetId": null,
-            "canonicalProductId": null,
-            "cmsPageId": null,
-            "cmsPageVersionId": null,
             "price": [
                 {
+                    "extensions": [],
                     "currencyId": "b7d2554b0ce847cd82f3ac9bd1c0dfca",
-                    "net": 798,
+                    "net": 798.0,
                     "gross": 950,
                     "linked": true,
                     "listPrice": null,
                     "percentage": null,
                     "regulationPrice": null,
-                    "extensions": []
+                    "apiAlias": "price"
                 }
             ],
-            "productNumber": "SWDEMO10002",
-            "stock": 10,
-            "restockTime": null,
-            "autoIncrement": 1,
-            "active": true,
-            "availableStock": 10,
-            "available": true,
-            "isCloseout": false,
-            "variation": [],
-            "displayGroup": "9cc83811832d4b1f1593acb545f36678",
-            "configuratorGroupConfig": null,
-            "mainVariantId": null,
-            "displayParent": null,
-            "variantListingConfig": null,
-            "variantRestrictions": null,
-            "manufacturerNumber": null,
-            "ean": null,
-            "purchaseSteps": 1,
-            "maxPurchase": null,
-            "minPurchase": 1,
-            "purchaseUnit": 1,
-            "referenceUnit": 1,
-            "shippingFree": true,
-            "purchasePrices": null,
-            "markAsTopseller": null,
-            "weight": 45,
-            "width": 590,
-            "height": 600,
-            "length": 840,
-            "releaseDate": "2023-03-01T20:54:42.428+00:00",
-            "ratingAverage": null,
-            "categoryTree": [
-                "9d7a6acc44af4fdcaf3dbf7337fe6f81",
-                "251448b91bc742de85643f5fccd89051"
-            ],
-            "propertyIds": null,
-            "optionIds": null,
-            "streamIds": null,
-            "tagIds": null,
-            "categoryIds": [
-                "251448b91bc742de85643f5fccd89051"
-            ],
-            "childCount": 0,
-            "customFieldSetSelectionActive": null,
-            "sales": 0,
-            "states": [
-                "is-physical"
-            ],
-            "metaDescription": null,
-            "name": "Main product with advanced prices",
-            "keywords": null,
-            "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
-            "metaTitle": null,
-            "packUnit": null,
-            "packUnitPlural": null,
-            "customFields": null,
-            "slotConfig": null,
-            "customSearchKeywords": null,
-            "cheapestPrice": {
-                "hasRange": false,
-                "variantId": "11dc680240b04f469ccba354cbf0b967",
-                "parentId": "11dc680240b04f469ccba354cbf0b967",
-                "ruleId": null,
-                "purchase": 1,
-                "reference": 1,
-                "unitId": null,
-                "price": [
-                    {
-                        "currencyId": "b7d2554b0ce847cd82f3ac9bd1c0dfca",
-                        "net": 798,
-                        "gross": 950,
-                        "linked": true,
-                        "listPrice": null,
-                        "percentage": null,
-                        "regulationPrice": null,
-                        "extensions": []
-                    }
-                ],
-                "extensions": []
-            },
-            "createdAt": "2023-03-01T20:54:42.443+00:00",
-            "updatedAt": "2023-03-28T11:49:02.140+00:00",
-            "translated": {
-                "metaDescription": null,
-                "name": "Main product with advanced prices",
-                "keywords": null,
-                "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
-                "metaTitle": null,
-                "packUnit": null,
-                "packUnitPlural": null,
-                "customFields": [],
-                "slotConfig": null,
-                "customSearchKeywords": null
-            },
-            "apiAlias": null
+            "apiAlias": "shopware_core_content_product_data_abstraction_layer_cheapest_price_cheapest_price"
         },
-        "links": {
-            "self": "http:\/\/localhost:8080\/api\/product\/11dc680240b04f469ccba354cbf0b967"
+        "cover": null,
+        "parent": null,
+        "children": null,
+        "media": null,
+        "cmsPageId": null,
+        "cmsPage": null,
+        "slotConfig": null,
+        "searchKeywords": null,
+        "translations": null,
+        "categories": null,
+        "customFieldSets": null,
+        "tags": null,
+        "properties": null,
+        "options": null,
+        "configuratorSettings": null,
+        "categoriesRo": null,
+        "coverId": "e648140ff1f04177b40128ac6b649d8a",
+        "blacklistIds": null,
+        "whitelistIds": null,
+        "visibilities": null,
+        "tagIds": null,
+        "categoryIds": [
+            "251448b91bc742de85643f5fccd89051"
+        ],
+        "productReviews": null,
+        "ratingAverage": null,
+        "mainCategories": null,
+        "seoUrls": null,
+        "orderLineItems": null,
+        "crossSellings": null,
+        "crossSellingAssignedProducts": null,
+        "featureSetId": null,
+        "featureSet": null,
+        "customFieldSetSelectionActive": null,
+        "customSearchKeywords": null,
+        "wishlists": null,
+        "canonicalProductId": null,
+        "canonicalProduct": null,
+        "cheapestPriceContainer": {
+            "extensions": [],
+            "value": {
+                "11dc680240b04f469ccba354cbf0b967": {
+                    "28caae75a5624f0d985abd0eb32aa160": {
+                        "parent_id": "11dc680240b04f469ccba354cbf0b967",
+                        "variant_id": "11dc680240b04f469ccba354cbf0b967",
+                        "rule_id": "28caae75a5624f0d985abd0eb32aa160",
+                        "unit_id": null,
+                        "purchase_unit": "1.0000",
+                        "reference_unit": "1.000",
+                        "min_purchase": "1",
+                        "price": {
+                            "cb7d2554b0ce847cd82f3ac9bd1c0dfca": {
+                                "net": 630.25,
+                                "gross": 750,
+                                "linked": true,
+                                "currencyId": "b7d2554b0ce847cd82f3ac9bd1c0dfca"
+                            }
+                        },
+                        "is_ranged": "1"
+                    },
+                    "default": {
+                        "parent_id": "11dc680240b04f469ccba354cbf0b967",
+                        "variant_id": "11dc680240b04f469ccba354cbf0b967",
+                        "rule_id": null,
+                        "is_ranged": "0",
+                        "price": {
+                            "cb7d2554b0ce847cd82f3ac9bd1c0dfca": {
+                                "net": 798.0,
+                                "gross": 950,
+                                "linked": true,
+                                "currencyId": "b7d2554b0ce847cd82f3ac9bd1c0dfca"
+                            }
+                        },
+                        "min_purchase": "1",
+                        "unit_id": null,
+                        "purchase_unit": "1.0000",
+                        "reference_unit": "1.000",
+                        "child_count": "0"
+                    }
+                }
+            },
+            "default": null,
+            "apiAlias": "cheapest_price_container"
         },
-        "relationships": {
-            "downloads": {
-                "data": [],
-                "links": {
-                    "related": "http:\/\/localhost:8080\/api\/product\/11dc680240b04f469ccba354cbf0b967\/downloads"
-                }
-            },
-            "parent": {
-                "data": null,
-                "links": {
-                    "related": "http:\/\/localhost:8080\/api\/product\/11dc680240b04f469ccba354cbf0b967\/parent"
-                }
-            },
-            "children": {
-                "data": [],
-                "links": {
-                    "related": "http:\/\/localhost:8080\/api\/product\/11dc680240b04f469ccba354cbf0b967\/children"
-                }
-            },
-            "deliveryTime": {
-                "data": null,
-                "links": {
-                    "related": "http:\/\/localhost:8080\/api\/product\/11dc680240b04f469ccba354cbf0b967\/delivery-time"
-                }
-            },
-            "tax": {
-                "data": {
-                    "type": "tax",
-                    "id": "3eea0cb623fd45df86a12198da08ea6f"
-                },
-                "links": {
-                    "related": "http:\/\/localhost:8080\/api\/product\/11dc680240b04f469ccba354cbf0b967\/tax"
-                }
-            },
-            "manufacturer": {
-                "data": null,
-                "links": {
-                    "related": "http:\/\/localhost:8080\/api\/product\/11dc680240b04f469ccba354cbf0b967\/manufacturer"
-                }
-            },
-            "unit": {
-                "data": null,
-                "links": {
-                    "related": "http:\/\/localhost:8080\/api\/product\/11dc680240b04f469ccba354cbf0b967\/unit"
-                }
-            },
-            "cover": {
-                "data": null,
-                "links": {
-                    "related": "http:\/\/localhost:8080\/api\/product\/11dc680240b04f469ccba354cbf0b967\/cover"
-                }
-            },
-            "featureSet": {
-                "data": null,
-                "links": {
-                    "related": "http:\/\/localhost:8080\/api\/product\/11dc680240b04f469ccba354cbf0b967\/feature-set"
-                }
-            },
-            "cmsPage": {
-                "data": null,
-                "links": {
-                    "related": "http:\/\/localhost:8080\/api\/product\/11dc680240b04f469ccba354cbf0b967\/cms-page"
-                }
-            },
-            "canonicalProduct": {
-                "data": null,
-                "links": {
-                    "related": "http:\/\/localhost:8080\/api\/product\/11dc680240b04f469ccba354cbf0b967\/canonical-product"
-                }
-            },
-            "prices": {
-                "data": [],
-                "links": {
-                    "related": "http:\/\/localhost:8080\/api\/product\/11dc680240b04f469ccba354cbf0b967\/prices"
-                }
-            },
-            "media": {
-                "data": [],
-                "links": {
-                    "related": "http:\/\/localhost:8080\/api\/product\/11dc680240b04f469ccba354cbf0b967\/media"
-                }
-            },
-            "crossSellings": {
-                "data": [],
-                "links": {
-                    "related": "http:\/\/localhost:8080\/api\/product\/11dc680240b04f469ccba354cbf0b967\/cross-sellings"
-                }
-            },
-            "crossSellingAssignedProducts": {
-                "data": [],
-                "links": {
-                    "related": "http:\/\/localhost:8080\/api\/product\/11dc680240b04f469ccba354cbf0b967\/cross-selling-assigned-products"
-                }
-            },
-            "configuratorSettings": {
-                "data": [],
-                "links": {
-                    "related": "http:\/\/localhost:8080\/api\/product\/11dc680240b04f469ccba354cbf0b967\/configurator-settings"
-                }
-            },
-            "visibilities": {
-                "data": [],
-                "links": {
-                    "related": "http:\/\/localhost:8080\/api\/product\/11dc680240b04f469ccba354cbf0b967\/visibilities"
-                }
-            },
-            "searchKeywords": {
-                "data": [],
-                "links": {
-                    "related": "http:\/\/localhost:8080\/api\/product\/11dc680240b04f469ccba354cbf0b967\/search-keywords"
-                }
-            },
-            "productReviews": {
-                "data": [],
-                "links": {
-                    "related": "http:\/\/localhost:8080\/api\/product\/11dc680240b04f469ccba354cbf0b967\/product-reviews"
-                }
-            },
-            "mainCategories": {
-                "data": [],
-                "links": {
-                    "related": "http:\/\/localhost:8080\/api\/product\/11dc680240b04f469ccba354cbf0b967\/main-categories"
-                }
-            },
-            "seoUrls": {
-                "data": [],
-                "links": {
-                    "related": "http:\/\/localhost:8080\/api\/product\/11dc680240b04f469ccba354cbf0b967\/seo-urls"
-                }
-            },
-            "orderLineItems": {
-                "data": [],
-                "links": {
-                    "related": "http:\/\/localhost:8080\/api\/product\/11dc680240b04f469ccba354cbf0b967\/order-line-items"
-                }
-            },
-            "wishlists": {
-                "data": [],
-                "links": {
-                    "related": "http:\/\/localhost:8080\/api\/product\/11dc680240b04f469ccba354cbf0b967\/wishlists"
-                }
-            },
-            "options": {
-                "data": [],
-                "links": {
-                    "related": "http:\/\/localhost:8080\/api\/product\/11dc680240b04f469ccba354cbf0b967\/options"
-                }
-            },
-            "properties": {
-                "data": [],
-                "links": {
-                    "related": "http:\/\/localhost:8080\/api\/product\/11dc680240b04f469ccba354cbf0b967\/properties"
-                }
-            },
-            "categories": {
-                "data": [],
-                "links": {
-                    "related": "http:\/\/localhost:8080\/api\/product\/11dc680240b04f469ccba354cbf0b967\/categories"
-                }
-            },
-            "streams": {
-                "data": [],
-                "links": {
-                    "related": "http:\/\/localhost:8080\/api\/product\/11dc680240b04f469ccba354cbf0b967\/streams"
-                }
-            },
-            "categoriesRo": {
-                "data": [],
-                "links": {
-                    "related": "http:\/\/localhost:8080\/api\/product\/11dc680240b04f469ccba354cbf0b967\/categories-ro"
-                }
-            },
-            "tags": {
-                "data": [],
-                "links": {
-                    "related": "http:\/\/localhost:8080\/api\/product\/11dc680240b04f469ccba354cbf0b967\/tags"
-                }
-            },
-            "customFieldSets": {
-                "data": [],
-                "links": {
-                    "related": "http:\/\/localhost:8080\/api\/product\/11dc680240b04f469ccba354cbf0b967\/custom-field-sets"
-                }
-            },
-            "translations": {
-                "data": [],
-                "links": {
-                    "related": "http:\/\/localhost:8080\/api\/product\/11dc680240b04f469ccba354cbf0b967\/translations"
-                }
-            }
-        },
-        "meta": null
-    },
-    "included": [
-        {
-            "id": "3eea0cb623fd45df86a12198da08ea6f",
-            "type": "tax",
-            "attributes": {
-                "taxRate": 19,
-                "name": "Standard rate",
-                "position": 1,
-                "customFields": null,
-                "createdAt": "2023-03-01T20:53:56.882+00:00",
-                "updatedAt": null,
-                "apiAlias": null
-            },
-            "links": {
-                "self": "http:\/\/localhost:8080\/api\/tax\/3eea0cb623fd45df86a12198da08ea6f"
-            },
-            "relationships": {
-                "products": {
-                    "data": [],
-                    "links": {
-                        "related": "http:\/\/localhost:8080\/api\/tax\/3eea0cb623fd45df86a12198da08ea6f\/products"
-                    }
-                },
-                "rules": {
-                    "data": [],
-                    "links": {
-                        "related": "http:\/\/localhost:8080\/api\/tax\/3eea0cb623fd45df86a12198da08ea6f\/rules"
-                    }
-                },
-                "shippingMethods": {
-                    "data": [],
-                    "links": {
-                        "related": "http:\/\/localhost:8080\/api\/tax\/3eea0cb623fd45df86a12198da08ea6f\/shipping-methods"
-                    }
-                }
-            },
-            "meta": null
-        }
-    ],
-    "links": {
-        "self": "http:\/\/localhost:8080\/api\/product\/11dc680240b04f469ccba354cbf0b967"
+        "streams": null,
+        "downloads": null,
+        "states": [
+            "is-physical"
+        ],
+        "id": "11dc680240b04f469ccba354cbf0b967",
+        "customFields": null,
+        "apiAlias": "product"
     }
 }

@@ -99,39 +99,68 @@ final class HydrateDataTest extends TestCase
         return
             [
                 [
-                    'id' => 'b7d2554b0ce847cd82f3ac9bd1c0dfca',
-                    'type' => 'currency',
-                    'attributes' =>
+                    'isoCode' => 'EUR',
+                    'factor' => 1,
+                    'symbol' => '€',
+                    'shortName' => 'EUR',
+                    'name' => 'Euro',
+                    'position' => 1,
+                    'translations' => NULL,
+                    'orders' => NULL,
+                    'salesChannels' => NULL,
+                    'salesChannelDefaultAssignments' => NULL,
+                    'salesChannelDomains' => NULL,
+                    'shippingMethodPrices' => NULL,
+                    'promotionDiscountPrices' => NULL,
+                    'isSystemDefault' => true,
+                    'productExports' => NULL,
+                    'countryRoundings' => NULL,
+                    'itemRounding' =>
                         [
-                            'factor' => 1.0,
-                            'symbol' => '€',
-                            'isoCode' => 'EUR',
+                            'decimals' => 2,
+                            'interval' => 0.01,
+                            'roundForNet' => true,
+                            'extensions' =>
+                                [
+                                ],
+                            'apiAlias' => 'shopware_core_framework_data_abstraction_layer_pricing_cash_rounding_config',
+                        ],
+                    'totalRounding' =>
+                        [
+                            'decimals' => 2,
+                            'interval' => 0.01,
+                            'roundForNet' => true,
+                            'extensions' =>
+                                [
+                                ],
+                            'apiAlias' => 'shopware_core_framework_data_abstraction_layer_pricing_cash_rounding_config',
+                        ],
+                    'taxFreeFrom' => 0,
+                    '_uniqueIdentifier' => 'b7d2554b0ce847cd82f3ac9bd1c0dfca',
+                    'versionId' => NULL,
+                    'translated' =>
+                        [
                             'shortName' => 'EUR',
                             'name' => 'Euro',
-                            'position' => 1,
-                            'isSystemDefault' => true,
-                            'customFields' => NULL,
-                            'itemRounding' =>
+                            'customFields' =>
                                 [
-                                    'extensions' =>
-                                        [
-                                        ],
-                                    'decimals' => 2,
-                                    'interval' => 0.01,
-                                    'roundForNet' => true,
                                 ],
-                            'totalRounding' =>
-                                [
-                                    'extensions' =>
-                                        [
-                                        ],
-                                    'decimals' => 2,
-                                    'interval' => 0.01,
-                                    'roundForNet' => true,
-                                ],
-                            'taxFreeFrom' => 0.0,
                         ],
-
+                    'createdAt' => '2023-03-01T20:35:56.916+00:00',
+                    'updatedAt' => NULL,
+                    'extensions' =>
+                        [
+                            'foreignKeys' =>
+                                [
+                                    'apiAlias' => NULL,
+                                    'extensions' =>
+                                        [
+                                        ],
+                                ],
+                        ],
+                    'id' => 'b7d2554b0ce847cd82f3ac9bd1c0dfca',
+                    'customFields' => NULL,
+                    'apiAlias' => 'currency',
                 ],
             ];
     }
@@ -142,35 +171,26 @@ final class HydrateDataTest extends TestCase
             [
                 'id' => '5c025a831a584fc0add209b81517e69d',
                 'type' => 'tax',
-                'attributes' =>
-                    [
-                        'taxRate' => 19.0,
-                        'name' => 'Standard rate',
-                        'position' => 1,
-                        'customFields' => NULL,
-                    ],
+                'taxRate' => 19.0,
+                'name' => 'Standard rate',
+                'position' => 1,
+                'customFields' => NULL,
             ],
             [
                 'id' => '7fdbc3f0c0664c6bb8d96bd5c93dfd40',
                 'type' => 'tax',
-                'attributes' =>
-                    [
-                        'taxRate' => 7.0,
-                        'name' => 'Reduced rate',
-                        'position' => 2,
-                        'customFields' => NULL,
-                    ],
+                'taxRate' => 7.0,
+                'name' => 'Reduced rate',
+                'position' => 2,
+                'customFields' => NULL,
             ],
             [
                 'id' => 'beacebf5ce694b79b0df78224beb26c0',
                 'type' => 'tax',
-                'attributes' =>
-                    [
-                        'taxRate' => 0.0,
-                        'name' => 'Reduced rate 2',
-                        'position' => 3,
-                        'customFields' => NULL,
-                    ],
+                'taxRate' => 0.0,
+                'name' => 'Reduced rate 2',
+                'position' => 3,
+                'customFields' => NULL,
             ],
         ];
     }
@@ -179,45 +199,41 @@ final class HydrateDataTest extends TestCase
     {
         return
             [
-                0 =>
-                    [
-                        'id' => '5785d7d3c8b041bcaa59899abd39c1b4',
-                        'type' => 'order',
-                        'attributes' =>
-                            [
-                                'orderNumber' => '10001',
-                                'shippingCosts' =>
-                                    [
-                                        'unitPrice' => 0.0,
-                                        'quantity' => 1,
-                                        'totalPrice' => 0.0,
-                                        'calculatedTaxes' =>
-                                            [
-                                                0 =>
-                                                    [
-                                                        'extensions' =>
-                                                            [
-                                                            ],
-                                                        'tax' => 0.0,
-                                                        'taxRate' => 19.0,
-                                                        'price' => 0.0,
-                                                    ],
-                                            ],
-                                        'taxRules' =>
+                [
+                    'id' => '5785d7d3c8b041bcaa59899abd39c1b4',
+                    'type' => 'order',
+                    'orderNumber' => '10001',
+                    'shippingCosts' =>
+                        [
+                            'unitPrice' => 0.0,
+                            'quantity' => 1,
+                            'totalPrice' => 0.0,
+                            'calculatedTaxes' =>
+                                [
+                                    0 =>
                                         [
-                                            [
-
-                                                'taxRate' => 19.0,
-                                                'percentage' => 100.0,
-
-                                            ]
+                                            'extensions' =>
+                                                [
+                                                ],
+                                            'tax' => 0.0,
+                                            'taxRate' => 19.0,
+                                            'price' => 0.0,
                                         ],
-                                        'referencePrice' => NULL,
-                                        'listPrice' => NULL,
-                                        'regulationPrice' => NULL,
+                                ],
+                            'taxRules' =>
+                                [
+                                    [
+
+                                        'taxRate' => 19.0,
+                                        'percentage' => 100.0,
+
                                     ],
-                            ],
-                    ],
+                                ],
+                            'referencePrice' => NULL,
+                            'listPrice' => NULL,
+                            'regulationPrice' => NULL,
+                        ],
+                ],
             ];
     }
 }

@@ -18,10 +18,10 @@ final class ProductTest extends TestCase
         $product = $adminApi->product->get('11dc680240b04f469ccba354cbf0b967');
 
         self::assertSame('11dc680240b04f469ccba354cbf0b967', $product->id);
-        self::assertSame('3eea0cb623fd45df86a12198da08ea6f', $product->taxId);
+        self::assertSame('5c025a831a584fc0add209b81517e69d', $product->taxId);
         self::assertSame('SWDEMO10002', $product->productNumber);
         self::assertSame(10, $product->stock);
-        self::assertSame('Main product with advanced prices', $product->name);
+        self::assertSame('Hauptprodukt mit erweiterten Preisen', $product->name);
         self::assertSame('Lorem ipsum dolor sit amet, consetetur sadipscing elitr', $product->description);
         self::assertSame(false, $product->isCloseout);
 

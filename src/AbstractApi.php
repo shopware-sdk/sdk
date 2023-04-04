@@ -46,6 +46,7 @@ abstract class AbstractApi implements ApiInterface
     {
         $headers[self::AUTH_HEADER_NAME] = 'Bearer ' . $this->getAuthorizationToken();
         $headers['Content-Type'] = 'application/json';
+        $headers['Accept'] = 'application/json';
 
         return $headers;
     }
