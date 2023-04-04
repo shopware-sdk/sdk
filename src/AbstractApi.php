@@ -25,7 +25,7 @@ abstract class AbstractApi implements ApiInterface
      *   );
      */
     public function __construct(
-        private readonly Config $config,
+        public readonly Config $config,
         HttpClientInterface $httpClient = null
     )
     {

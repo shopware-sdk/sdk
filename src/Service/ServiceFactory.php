@@ -1,9 +1,8 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace ShopwareSdk\Service;
 
-use ShopwareSdk\AbstractApi;
-use ShopwareSdk\Model\Country;
+use ShopwareSdk\ApiInterface;
 
 class ServiceFactory
 {
@@ -23,9 +22,13 @@ class ServiceFactory
     private $services = [];
 
     public function __construct(
-        private readonly AbstractApi $client
+        private readonly ApiInterface $client
     )
     {
+        $this->classMap = array_merge(
+            $this->classMap,
+            $this->client->config->classMaps,
+        );
     }
 
     public function get(string $name)

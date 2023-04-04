@@ -81,6 +81,110 @@ array(2) {
 }
 ``` 
 
+## Extending the SDK
+
+### Create a new service
+
+It may be that a service is not there and you need it.
+Then you can simply create it and register it for AdminApi.
+
+#### Example:
+
+We create a NewService and extend AbstractService to access the method request.
+
+```php
+
+namespace App\ShopwareSdk\Service;
+
+use ShopwareSdk\Service\AbstractService;
+
+class NewService extends AbstractService
+{
+    protected const URL = '/api/new_service/';
+    
+    public function getAll(): NewServiceCollection
+    {
+        return $this->request('GET', self::URL, NewServiceCollection::class);
+    }
+}
+```
+
+Now when we create the AdminApi we just have to say under which name the service can be accessed.
+
+```php
+
+use App\ShopwareSdk\Service\NewService;
+
+$config = new Config(
+    'https://shopware.test',
+    'clientId',
+    'clientSecret',
+    [
+        'newService' => NewService::class,
+    ]
+);
+
+$adminApi = new AdminApi($config);
+```
+
+Now we can access the service through the AdminApi.
+
+```php
+/** @var NewService $newService */
+$newService = $adminApi->newService;
+$newService->getAll();
+```
+
+### Replace a default service
+
+It could be that you want to extend or change the existing service.
+E.g. you want to add new methods or maybe change the model class.
+
+#### Example:
+
+We create a ProductService and extend ProductService to add new method.
+
+```php
+
+namespace App\ShopwareSdk\Service;
+
+use ShopwareSdk\Service\ProductService;
+
+class MyProductService extends ProductService
+{
+    public function getNewFancyMethod(): NewServiceCollection
+    {
+        return $this->request('GET', self::URL, NewServiceCollection::class);
+    }
+}
+```
+
+Now we just have to tell our Config that the Product-Service is our ProductService.
+
+
+```php
+
+use App\ShopwareSdk\Service\MyProductService
+
+$config = new Config(
+    'https://shopware.test',
+    'clientId',
+    'clientSecret',
+    [
+        'product' => MyProductService::class,
+    ]
+);
+
+$adminApi = new AdminApi($config);
+```
+
+Now we can reach the service via the AdminApi.
+
+```php
+/** @var MyProductService $newService */
+$product = $adminApi->product;
+$product->getNewFancyMethod();
+```
 
 ## Work locally
 

@@ -8,6 +8,7 @@ final class Config
         public readonly string $apiUrl,
         public readonly string $clientId,
         public readonly string $clientSecret,
+        public readonly array  $classMaps = [],
     )
     {
     }
