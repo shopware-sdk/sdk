@@ -9,7 +9,6 @@ Sponsor by <a href="https://www.valantic.com/cx"><img src="https://www.valantic.
 > Shopware SDK is currently being developed
 
 
-
 Elevate your integration with the Shopware API through the swifter SDK API, designed specifically for seamless connectivity with external systems.
 
 🔄 Time to evolve! Abandon the use of arrays and embrace the power of objects. 🔄
@@ -19,6 +18,18 @@ Elevate your integration with the Shopware API through the swifter SDK API, desi
 🔍 Can't find all the API endpoints? No worries! If you spot any omissions, kindly create an issue or submit a PR. 
 
 Your contributions are always welcome! 🤗
+
+## Table of Contents
+
+1. [How to use](#how-to-use)
+    1. [Composer](#composer)
+    2. [Initialize the SDK](#initialize-the-sdk)
+2. [Extending the SDK](#extending-the-sdk)
+    1. [Create a new service](#create-a-new-service)
+    2. [Replace or extends a default service](#replace-a-default-service)
+3. [Work locally](#work-locally)
+
+
 
 ## How to use
 
@@ -135,7 +146,7 @@ $newService = $adminApi->newService;
 $newService->getAll();
 ```
 
-### Replace a default service
+### Replace or extends a default service
 
 It could be that you want to extend or change the existing service.
 E.g. you want to add new methods or maybe change the model class.
