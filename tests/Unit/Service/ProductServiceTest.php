@@ -1,18 +1,18 @@
 <?php declare(strict_types=1);
 
-namespace ShopwareSdk\Tests\Unit\Model;
+namespace ShopwareSdk\Tests\Unit\Service;
 
 use PHPUnit\Framework\TestCase;
 use ShopwareSdk\AdminApi;
 use ShopwareSdk\Tests\ApiHelper;
 use ShopwareSdk\Tests\ClientSpy;
 
-final class ProductTest extends TestCase
+final class ProductServiceTest extends TestCase
 {
     public function testGet()
     {
         $clientSpy = new ClientSpy([
-            '/api/product/11dc680240b04f469ccba354cbf0b967' => json_decode(file_get_contents(__DIR__ . '/product_response.json'), true),
+            '/api/product/11dc680240b04f469ccba354cbf0b967' => json_decode(file_get_contents(__DIR__ . '/json/product_response.json'), true),
         ]);
         $adminApi = new AdminApi(ApiHelper::getConfig(), $clientSpy);
         $product = $adminApi->product->get('11dc680240b04f469ccba354cbf0b967');

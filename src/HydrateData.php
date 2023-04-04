@@ -7,7 +7,7 @@ use ReflectionClass;
 
 final class HydrateData
 {
-    public function map(array $data, string $class): object
+    public function map(array $data, string $class)
     {
         $object = new $class();
         if ($object instanceof CollectionInterface) {
@@ -36,19 +36,19 @@ final class HydrateData
                     $reflectionProperty = (new ReflectionClass($object))->getProperty($propertyName);
                     $docComment = $reflectionProperty->getDocComment();
 
+                    $isArray = false;
                     if ($docComment && preg_match('/@var\s+([\\\\\\w]+)(\[\]|)/', $docComment, $matches)) {
                         $propertyType = $matches[1];
                         $isArray = $matches[2] === '[]';
                     } else {
-                        $propertyType = (string) $reflectionProperty->getType();
-                        $isArray = $reflectionProperty->getType()?->allowsNull() && in_array($value, [null], true);
+                        $propertyType = (string)$reflectionProperty->getType();
                         $propertyType = ltrim($propertyType, '?');
                     }
 
                     if ($propertyType) {
                         if ($isArray) {
                             $value = array_map(fn($item) => $this->mapArrayToClass($item, $propertyType), $value);
-                        } else {
+                        } else if ($propertyType !== 'array') {
                             $value = $this->mapArrayToClass($value, $propertyType);
                         }
                     }

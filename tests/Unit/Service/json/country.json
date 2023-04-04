@@ -1,0 +1,59 @@
+{
+  "data": {
+    "name": "Morocco",
+    "iso": "MA",
+    "position": 10,
+    "taxFree": false,
+    "active": true,
+    "shippingAvailable": true,
+    "iso3": "MAR",
+    "displayStateInRegistration": false,
+    "forceStateInRegistration": false,
+    "companyTaxFree": false,
+    "checkVatIdPattern": false,
+    "vatIdRequired": false,
+    "customerTax": {
+      "enabled": false,
+      "currencyId": "b7d2554b0ce847cd82f3ac9bd1c0dfca",
+      "amount": 0,
+      "extensions": [],
+      "apiAlias": "shopware_core_framework_data_abstraction_layer_tax_free_config"
+    },
+    "companyTax": {
+      "enabled": false,
+      "currencyId": "b7d2554b0ce847cd82f3ac9bd1c0dfca",
+      "amount": 0,
+      "extensions": [],
+      "apiAlias": "shopware_core_framework_data_abstraction_layer_tax_free_config"
+    },
+    "postalCodeRequired": false,
+    "checkPostalCodePattern": false,
+    "checkAdvancedPostalCodePattern": false,
+    "defaultPostalCodePattern": "\\d{5}",
+    "addressFormat": [
+      [
+        "address/company",
+        "symbol/dash",
+        "address/department"
+      ],
+      [
+        "address/first_name",
+        "address/last_name"
+      ],
+      [
+        "address/street"
+      ],
+      [
+        "address/zipcode",
+        "address/city"
+      ],
+      [
+        "address/country"
+      ]
+    ],
+    "_uniqueIdentifier": "55dd89c0e4ca4a36b8f63c68c45851bb",
+    "createdAt": "2023-03-01T20:36:05.788+00:00",
+    "updatedAt": "2023-04-01T10:10:07.051+00:00",
+    "id": "55dd89c0e4ca4a36b8f63c68c45851bb"
+  }
+}

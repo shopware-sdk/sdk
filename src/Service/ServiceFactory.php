@@ -3,20 +3,18 @@
 namespace ShopwareSdk\Service;
 
 use ShopwareSdk\AbstractApi;
+use ShopwareSdk\Model\Country;
 
-/**
- * Factory to create API services.
- */
 class ServiceFactory
 {
     /**
      * @var array<string, string>
      */
     protected $classMap = [
+        'country' => CountryService::class,
+        'currency' => CurrencyService::class,
         'product' => ProductService::class,
         'tax' => TaxService::class,
-        'currency' => CurrencyService::class,
-        'order' => OrderService::class,
     ];
 
     /**
@@ -25,7 +23,8 @@ class ServiceFactory
     private $services = [];
 
     public function __construct(
-        private AbstractApi $client)
+        private readonly AbstractApi $client
+    )
     {
     }
 

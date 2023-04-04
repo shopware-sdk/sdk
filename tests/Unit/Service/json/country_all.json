@@ -1,0 +1,208 @@
+{
+  "total": 2,
+  "data": [
+    {
+      "name": "Nepal",
+      "iso": "NP",
+      "position": 10,
+      "taxFree": false,
+      "active": true,
+      "shippingAvailable": true,
+      "iso3": "NPL",
+      "displayStateInRegistration": false,
+      "forceStateInRegistration": false,
+      "companyTaxFree": false,
+      "checkVatIdPattern": false,
+      "vatIdPattern": null,
+      "vatIdRequired": false,
+      "customerTax": {
+        "enabled": false,
+        "currencyId": "b7d2554b0ce847cd82f3ac9bd1c0dfca",
+        "amount": 0,
+        "extensions": [],
+        "apiAlias": "shopware_core_framework_data_abstraction_layer_tax_free_config"
+      },
+      "companyTax": {
+        "enabled": false,
+        "currencyId": "b7d2554b0ce847cd82f3ac9bd1c0dfca",
+        "amount": 0,
+        "extensions": [],
+        "apiAlias": "shopware_core_framework_data_abstraction_layer_tax_free_config"
+      },
+      "states": null,
+      "translations": null,
+      "orderAddresses": null,
+      "customerAddresses": null,
+      "salesChannelDefaultAssignments": null,
+      "salesChannels": null,
+      "taxRules": null,
+      "currencyCountryRoundings": null,
+      "postalCodeRequired": false,
+      "checkPostalCodePattern": false,
+      "checkAdvancedPostalCodePattern": false,
+      "advancedPostalCodePattern": null,
+      "defaultPostalCodePattern": "\\d{5}",
+      "addressFormat": [
+        [
+          "address/company",
+          "symbol/dash",
+          "address/department"
+        ],
+        [
+          "address/first_name",
+          "address/last_name"
+        ],
+        [
+          "address/street"
+        ],
+        [
+          "address/zipcode",
+          "address/city"
+        ],
+        [
+          "address/country"
+        ]
+      ],
+      "_uniqueIdentifier": "00ed566ac48c4bb588438b6ab5ff4b84",
+      "versionId": null,
+      "translated": {
+        "name": "Nepal",
+        "customFields": {},
+        "addressFormat": [
+          [
+            "address/company",
+            "symbol/dash",
+            "address/department"
+          ],
+          [
+            "address/first_name",
+            "address/last_name"
+          ],
+          [
+            "address/street"
+          ],
+          [
+            "address/zipcode",
+            "address/city"
+          ],
+          [
+            "address/country"
+          ]
+        ]
+      },
+      "createdAt": "2023-03-01T20:36:05.805+00:00",
+      "updatedAt": null,
+      "extensions": {
+        "foreignKeys": {
+          "apiAlias": null,
+          "extensions": []
+        }
+      },
+      "id": "00ed566ac48c4bb588438b6ab5ff4b84",
+      "customFields": null,
+      "apiAlias": "country"
+    },
+    {
+      "name": "Cuba",
+      "iso": "CU",
+      "position": 10,
+      "taxFree": false,
+      "active": true,
+      "shippingAvailable": true,
+      "iso3": "CUB",
+      "displayStateInRegistration": false,
+      "forceStateInRegistration": false,
+      "companyTaxFree": false,
+      "checkVatIdPattern": false,
+      "vatIdPattern": null,
+      "vatIdRequired": false,
+      "customerTax": {
+        "enabled": false,
+        "currencyId": "b7d2554b0ce847cd82f3ac9bd1c0dfca",
+        "amount": 0,
+        "extensions": [],
+        "apiAlias": "shopware_core_framework_data_abstraction_layer_tax_free_config"
+      },
+      "companyTax": {
+        "enabled": false,
+        "currencyId": "b7d2554b0ce847cd82f3ac9bd1c0dfca",
+        "amount": 0,
+        "extensions": [],
+        "apiAlias": "shopware_core_framework_data_abstraction_layer_tax_free_config"
+      },
+      "states": null,
+      "translations": null,
+      "orderAddresses": null,
+      "customerAddresses": null,
+      "salesChannelDefaultAssignments": null,
+      "salesChannels": null,
+      "taxRules": null,
+      "currencyCountryRoundings": null,
+      "postalCodeRequired": false,
+      "checkPostalCodePattern": false,
+      "checkAdvancedPostalCodePattern": false,
+      "advancedPostalCodePattern": null,
+      "defaultPostalCodePattern": "\\d{5}",
+      "addressFormat": [
+        [
+          "address/company",
+          "symbol/dash",
+          "address/department"
+        ],
+        [
+          "address/first_name",
+          "address/last_name"
+        ],
+        [
+          "address/street"
+        ],
+        [
+          "address/zipcode",
+          "address/city"
+        ],
+        [
+          "address/country"
+        ]
+      ],
+      "_uniqueIdentifier": "0130972174254197a49a35006e769f82",
+      "versionId": null,
+      "translated": {
+        "name": "Cuba",
+        "customFields": {},
+        "addressFormat": [
+          [
+            "address/company",
+            "symbol/dash",
+            "address/department"
+          ],
+          [
+            "address/first_name",
+            "address/last_name"
+          ],
+          [
+            "address/street"
+          ],
+          [
+            "address/zipcode",
+            "address/city"
+          ],
+          [
+            "address/country"
+          ]
+        ]
+      },
+      "createdAt": "2023-03-01T20:36:05.460+00:00",
+      "updatedAt": null,
+      "extensions": {
+        "foreignKeys": {
+          "apiAlias": null,
+          "extensions": []
+        }
+      },
+      "id": "0130972174254197a49a35006e769f82",
+      "customFields": null,
+      "apiAlias": "country"
+    }
+  ],
+  "aggregations": []
+}
