@@ -30,6 +30,25 @@ class CurrencyTest extends TestCase
         self::assertSame(true, $totalRounding->roundForNet);
     }
 
+    public function testGetCurrencyByName()
+    {
+        $query = [
+            'filter' =>
+                [
+                    'isoCode' => 'EUR',
+                ],
+        ];
+
+        $currencyCollection = ApiHelper::createAdminApi()->currency->getAll($query);
+        self::assertCount(1, $currencyCollection->entities);
+
+        $currency = $currencyCollection->entities[0];
+        self::assertSame('EUR', $currency->isoCode);
+        self::assertSame('Euro', $currency->name);
+        self::assertSame('€', $currency->symbol);
+        self::assertSame(1.0, $currency->factor);
+    }
+
     /**
      * @param string $isoCode
      * @param \ShopwareSdk\Model\Currency[] $enities
@@ -37,7 +56,7 @@ class CurrencyTest extends TestCase
      * @throws \Exception
      * @return \ShopwareSdk\Model\Currency
      */
-    private function getCurrenyByIsoCode(string $isoCode, array $enities) : Currency
+    private function getCurrenyByIsoCode(string $isoCode, array $enities): Currency
     {
         foreach ($enities as $currency) {
             if ($currency->isoCode === $isoCode) {

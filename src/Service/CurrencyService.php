@@ -8,13 +8,9 @@ use ShopwareSdk\Model\CurrencyCollection;
 class CurrencyService extends AbstractService
 {
     protected const URL = '/api/currency/';
-    public function getCurrencieByIsoCode(string $currencyName): Currency
-    {
-        return $this->request('GET', self::URL, Currency::class);
-    }
 
-    public function getAll(): CurrencyCollection
+    public function getAll(array $option = []): CurrencyCollection
     {
-        return $this->request('GET', self::URL, CurrencyCollection::class);
+        return $this->request('GET', self::URL, CurrencyCollection::class, null, $option);
     }
 }
