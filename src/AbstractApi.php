@@ -36,10 +36,17 @@ abstract class AbstractApi implements ApiInterface
     {
         $url = $this->config->apiUrl . $relativePath;
 
-        return $this->httpClient->request($method, $url, [
+        $options = [
             'headers' => array_merge($this->getHeaders(), $headers),
-            'json' => $body,
-        ]);
+        ];
+
+        if(isset($headers['Content-Type']) && strstr($headers['Content-Type'], 'image/')) {
+            $options['body'] = $body['body'];
+        } else {
+            $options['json'] = $body;
+        }
+
+        return $this->httpClient->request($method, $url, $options);
     }
 
     private function getHeaders() : array
