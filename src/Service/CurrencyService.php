@@ -9,8 +9,8 @@ class CurrencyService extends AbstractService
 {
     protected const URL = '/api/currency/';
 
-    public function getAll(array $option = []): CurrencyCollection
+    public function getAll(array $query = []): CurrencyCollection
     {
-        return $this->request('GET', self::URL, CurrencyCollection::class, null, $option);
+        return $this->request('GET', self::URL, CurrencyCollection::class, null, $query);
     }
 }
